@@ -12,7 +12,7 @@
     "sources": "https://github.com/SoapyXM/minicraft-example-mod"
   },
 
-  "license": "CC0-1.0"
+  "license": "CC0-1.0",
 
   "environment": "*",
   "entrypoints": {
