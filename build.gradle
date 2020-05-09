@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.gradle.plugin.idea-ext' version '0.7'
+}
+
+group 'dev.soapy'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "fabric-loader"
+        url = "https://raw.githubusercontent.com/SoapyXM/fabric-cursed-minicraft/master/releases"
+    }
+    maven {
+        name = "minicraft"
+        url = "https://raw.githubusercontent.com/SoapyXM/Minicraft/master/releases"
+    }
+    maven {
+        name = 'Fabric'
+        url = 'http://maven.modmuss50.me/'
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compile 'org.ow2.asm:asm:8.0'
+    compile 'org.ow2.asm:asm-analysis:8.0'
+    compile 'org.ow2.asm:asm-commons:8.0'
+    compile 'org.ow2.asm:asm-tree:8.0'
+    compile 'org.ow2.asm:asm-util:8.0'
+
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.8.1'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.8.1'
+
+    compile "net.fabricmc:fabric-loader:0.8.2+local"
+
+    compile "com.mojang:Minicraft:1.0.1"
+
+    compile 'com.google.jimfs:jimfs:1.1'
+    compile 'net.fabricmc:fabric-loader-sat4j:2.3.5.4'
+
+    compile 'net.fabricmc:tiny-mappings-parser:0.2.2.14'
+    compile 'net.fabricmc:tiny-remapper:0.2.2.64'
+
+    compile 'com.google.guava:guava:21.0'
+
+    compile "net.fabricmc:sponge-mixin:0.8.11"
+}
+
+import org.jetbrains.gradle.ext.*
+
+idea {
+    project {
+        settings {
+            runConfigurations {
+                "Run Minicraft"(Application) {                       // Create new run configuration "MyApp" that will run class foo.App
+                    mainClass = "net.fabricmc.loader.launch.knot.Knot"
+                    jvmArgs = "-Dfabric.development=true"
+                    moduleName = getProject().idea.module.name + ".main" // this is hacky.
+                }
+            }
+        }
+    }
+}

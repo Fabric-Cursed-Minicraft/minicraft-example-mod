@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "testmod",
+  "version": "${version}",
+
+  "name": "Example Mod",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "SoapyXM"
+  ],
+  "contact": {
+    "sources": "https://github.com/SoapyXM/minicraft-example-mod"
+  },
+
+  "license": "CC0-1.0"
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.soapy.examplemod.ExampleMod"
+    ]
+  },
+  "mixins": [
+    "examplemod.mixins.json"
+  ],
+
+  "depends": {}
+}
