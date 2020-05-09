@@ -59,6 +59,7 @@ idea {
                     mainClass = "net.fabricmc.loader.launch.knot.Knot"
                     jvmArgs = "-Dfabric.development=true"
                     moduleName = getProject().idea.module.name + ".main" // this is hacky.
+                    workingDirectory = "run"
                 }
             }
         }
